@@ -1,0 +1,110 @@
+/* Global Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #74b9ff; /* Light Blue background for a calming feel */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  .weather-container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 40px;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  h1 {
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #333;
+  }
+  
+  .search-box {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 10px;
+  }
+  
+  #city-input {
+    padding: 12px 20px;
+    font-size: 1.2em;
+    border-radius: 8px;
+    border: 2px solid #2980b9;
+    width: 60%;
+    outline: none;
+  }
+  
+  button {
+    padding: 12px 15px;
+    font-size: 1.3em;
+    background-color: #ff6f61; /* Vibrant Button Color */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 30%;
+  }
+  
+  button:hover {
+    background-color: #e64a41; /* Darker shade on hover */
+    transform: scale(1.05);
+  }
+  
+  .weather-info {
+    margin-top: 30px;
+  }
+  
+  .weather-info h2 {
+    font-size: 1.8em;
+    color: #333;
+    font-weight: 500;
+  }
+  
+  .weather-info .temp {
+    font-size: 3.5em;
+    font-weight: 700;
+    color: #2980b9;
+    margin: 20px 0;
+  }
+  
+  .weather-info .details {
+    font-size: 1.2em;
+    color: #555;
+  }
+  
+  .weather-info .card {
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+  
+  @media screen and (max-width: 500px) {
+    .weather-container {
+      width: 90%;
+      padding: 25px;
+    }
+  
+    #city-input {
+      width: 70%;
+    }
+  
+    button {
+      width: 40%;
+    }
+  
+    h1 {
+      font-size: 2em;
+    }
+  }
+  
