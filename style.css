@@ -1,110 +1,160 @@
 /* Global Styles */
 body {
     font-family: 'Roboto', sans-serif;
-    background: #74b9ff; /* Light Blue background for a calming feel */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+}
+
+.min-h-screen {
+    min-height: 100vh;
+    width: 100%;
+    padding: 1rem;
     box-sizing: border-box;
-  }
-  
-  .weather-container {
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 20px;
-    padding: 40px;
-    width: 350px;
-    text-align: center;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-  }
-  
-  h1 {
-    font-size: 2.5em;
-    font-weight: 700;
-    margin-bottom: 25px;
-    color: #333;
-  }
-  
-  .search-box {
+}
+
+.bg-white\/90 {
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    width: 100%;
+    max-width: 28rem;
+    margin: 0 auto;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.flex {
     display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.justify-center {
     justify-content: center;
-    margin-bottom: 20px;
-    gap: 10px;
-  }
-  
-  #city-input {
-    padding: 12px 20px;
-    font-size: 1.2em;
-    border-radius: 8px;
-    border: 2px solid #2980b9;
-    width: 60%;
-    outline: none;
-  }
-  
-  button {
-    padding: 12px 15px;
-    font-size: 1.3em;
-    background-color: #ff6f61; /* Vibrant Button Color */
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    width: 30%;
-  }
-  
-  button:hover {
-    background-color: #e64a41; /* Darker shade on hover */
-    transform: scale(1.05);
-  }
-  
-  .weather-info {
-    margin-top: 30px;
-  }
-  
-  .weather-info h2 {
-    font-size: 1.8em;
-    color: #333;
-    font-weight: 500;
-  }
-  
-  .weather-info .temp {
-    font-size: 3.5em;
+}
+
+.gap-3 {
+    gap: 0.75rem;
+}
+
+.w-full {
+    width: 100%;
+}
+
+h1 {
+    font-size: 2.25rem;
     font-weight: 700;
-    color: #2980b9;
-    margin: 20px 0;
-  }
-  
-  .weather-info .details {
-    font-size: 1.2em;
-    color: #555;
-  }
-  
-  .weather-info .card {
-    background-color: #f9f9f9;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-  }
-  
-  @media screen and (max-width: 500px) {
-    .weather-container {
-      width: 90%;
-      padding: 25px;
+    color: #1a202c;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+#city-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 2px solid #93c5fd;
+    border-radius: 0.75rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+#city-input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    background-color: #3b82f6;
+    border: none;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.2);
+}
+
+button:hover {
+    background-color: #2563eb;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 8px -1px rgba(59, 130, 246, 0.3);
+}
+
+#weather-info {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+    font-size: 1.5rem;
+    color: #1a202c;
+    margin-bottom: 1rem;
+}
+
+.temp {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #2563eb;
+    margin: 1rem 0;
+}
+
+.details {
+    font-size: 1.125rem;
+    color: #4b5563;
+    margin: 0.5rem 0;
+}
+
+@media screen and (max-width: 640px) {
+    .bg-white\/90 {
+        padding: 1.5rem;
     }
-  
-    #city-input {
-      width: 70%;
-    }
-  
-    button {
-      width: 40%;
-    }
-  
+
     h1 {
-      font-size: 2em;
+        font-size: 1.875rem;
     }
-  }
-  
+
+    .temp {
+        font-size: 2.5rem;
+    }
+
+    button {
+        padding: 0.75rem 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .bg-white\/90 {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    #city-input {
+        padding: 0.5rem 0.75rem;
+    }
+
+    .temp {
+        font-size: 2rem;
+    }
+}

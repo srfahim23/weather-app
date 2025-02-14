@@ -1,24 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weather App</title>
+  <title>আবহাওয়া অ্যাপ</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#3498db">
 </head>
 <body>
-  <div class="weather-container">
-    <h1>Weather App</h1>
-    <div class="search-box">
-      <input type="text" id="city-input" placeholder="Enter city name" />
-      <button onclick="getWeather()">Get Weather</button>
-    </div>
-    <div class="weather-info" id="weather-info">
-      <!-- Weather data will be displayed here -->
+  <div class="min-h-screen bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center p-4">
+    <div class="bg-white/90 backdrop-blur-lg rounded-3xl p-8 w-full max-w-md shadow-2xl">
+      <div class="flex flex-col items-center">
+        <h1 class="text-4xl font-bold text-gray-800 mb-8">স্থানীয় আবহাওয়া</h1>
+        
+        <div class="w-full flex gap-3 mb-8">
+          <input 
+            type="text" 
+            id="city-input"
+            class="w-full px-4 py-3 rounded-xl border-2 border-blue-300 focus:border-blue-500 focus:outline-none text-gray-700 placeholder-gray-400"
+            placeholder="শহরের নাম লিখুন (যেমন: ঢাকা, চট্টগ্রাম, সিলেট)..."
+          />
+          <button 
+            onclick="getWeather(); requestNotificationPermission()"
+            class="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-xl transition-all duration-200 shadow-lg hover:shadow-blue-300"
+          >
+            খুঁজুন
+          </button>
+        </div>
+
+        <div id="weather-info" class="w-full">
+          <!-- Initial state -->
+          <div class="text-center text-gray-500">
+            <svg class="w-20 h-20 mx-auto mb-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
+            </svg>
+            <p class="text-lg">শহরের আবহাওয়া জানতে শহরের নাম লিখুন</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
+  <script>
+    // Check if service worker is supported
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(registration => {
+            console.log('ServiceWorker registration successful');
+          })
+          .catch(err => {
+            console.log('ServiceWorker registration failed: ', err);
+          });
+      });
+    }
+
+    // Request notification permission
+    async function requestNotificationPermission() {
+      if (!("Notification" in window)) {
+        alert("এই ব্রাউজারে নোটিফিকেশন সাপোর্ট করে না");
+        return;
+      }
+      
+      if (Notification.permission !== "granted") {
+        await Notification.requestPermission();
+      }
+    }
+  </script>
   <script src="script.js"></script>
 </body>
 </html>
